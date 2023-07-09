@@ -1,2 +1,2 @@
 # jekyll-blog
-A jekyll-blog based on https://github.com/godalming123/jekyll-blog-theme
+An example jekyll-blog that uses https://github.com/godalming123/jekyll-blog-theme
