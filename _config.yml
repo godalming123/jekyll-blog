@@ -1,4 +1,4 @@
-baseurl: "/blog"
+baseurl: "/jekyll-blog"
 remote_theme: "godalming123/jekyll-blog-theme"
 title: "Example blog"
 description: "An example blog that uses jekyll-blog-theme"
