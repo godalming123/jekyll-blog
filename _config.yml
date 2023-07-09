@@ -1,7 +1,5 @@
 remote_theme: "godalming123/jekyll-blog-theme"
 baseurl: "/jekyll-blog"
-plugins:
-  - jekyll-remote-theme
 
 title: "Example blog"
 description: "An example blog that uses jekyll-blog-theme"
