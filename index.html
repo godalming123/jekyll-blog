@@ -1,3 +1,73 @@
 ---
-layout: home
 ---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ site.title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if site.description %}
+      <meta name="description" content="{{ site.description }}">
+    {% endif %}
+    {% if site.icon %}
+      <link rel="icon" type="image/jpg" href="{{ site.icon | relative_url }}">
+    {% endif %}
+    <link rel="stylesheet" href="{{ "/styling/colors.css"     | relative_url }}">
+    <link rel="stylesheet" href="{{ "/styling/typography.css" | relative_url }}">
+    <style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-rows: masonry;
+  grid-gap: 1rem;
+}
+
+.card {
+  background-color: var(--card-color);
+  transition: 250ms;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--fg-color);
+  text-decoration: none;
+}
+
+.card:hover {
+  background-color: var(--card-hover-color);
+  transform: translate(0, -0.25rem);
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > img {
+  width: 100%;
+}
+    </style>
+  </head>
+  <body>
+    <h1 class="main-title">{{ site.title }}</h1>
+    {% if site.description %}
+      <p>{{ site.description }}</p>
+    {% endif %}
+    {% for category in site.categories %}
+      <h2>{{ category[0] }}</h2>
+      <div class="grid">
+        {% for post in category[1] %}
+          <a href="{{ post.url | relative_url }}" class="card">
+            {% if post.date %}
+              <p>{{ post.date | date: "%-d %B %Y" }}</p>
+            {% endif %}
+            <h3>{{ post.title }}</h3>
+            {% if post.frontImage %}
+              <img src="{{ post.frontImage | relative_url }}" style="display: block;" />
+            {% endif %}
+            {% if post.description %}
+              <p>{{ post.description }}</p>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </body>
+</html>
